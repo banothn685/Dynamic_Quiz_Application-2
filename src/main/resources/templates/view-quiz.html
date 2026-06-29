@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>View Quiz History</title>
+
+    <link rel="stylesheet" href="/view-quiz.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">MCQ Quiz</div>
+
+    <a href="/home">
+        <i class="fa-solid fa-house"></i> Home
+    </a>
+
+    <a href="/quiz">
+        <i class="fa-solid fa-pen"></i> Quiz
+    </a>
+
+    <a href="/create-question">
+        <i class="fa-solid fa-circle-plus"></i> Create Questions
+    </a>
+
+    <a href="/all-questions">
+        <i class="fa-solid fa-book"></i> All Questions
+    </a>
+
+    <a href="/user-quiz">
+        <i class="fa-solid fa-user"></i> User Quiz
+    </a>
+
+    <a class="active" href="/view-quiz">
+        <i class="fa-solid fa-list-check"></i> View Quiz
+    </a>
+
+    <a href="/result">
+        <i class="fa-solid fa-chart-column"></i> Result
+    </a>
+
+    <a href="/logout">
+        <i class="fa-solid fa-right-from-bracket"></i> Logout
+    </a>
+
+</div>
+
+<div class="content">
+
+    <div class="top-box">
+        <h1>Quiz History</h1>
+        <p>View all quizzes you have attempted.</p>
+    </div>
+
+    <div class="table-box">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Subject</th>
+                    <th>Score</th>
+                    <th>Total Questions</th>
+                    <th>Percentage</th>
+                    <th>Attempt Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <!-- Later this will come from MySQL -->
+                <tr>
+                    <td>1</td>
+                    <td>Java</td>
+                    <td>8</td>
+                    <td>10</td>
+                    <td><span class="percentage good">80%</span></td>
+                    <td>24 Jun 2026</td>
+                    <td>
+                        <a class="view-btn" href="/result">
+                            <i class="fa-solid fa-eye"></i> View Result
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>SQL</td>
+                    <td>6</td>
+                    <td>10</td>
+                    <td><span class="percentage average">60%</span></td>
+                    <td>23 Jun 2026</td>
+                    <td>
+                        <a class="view-btn" href="/result">
+                            <i class="fa-solid fa-eye"></i> View Result
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>Spring Boot</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td><span class="percentage good">90%</span></td>
+                    <td>22 Jun 2026</td>
+                    <td>
+                        <a class="view-btn" href="/result">
+                            <i class="fa-solid fa-eye"></i> View Result
+                        </a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

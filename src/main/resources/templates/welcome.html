@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MCQ Quiz Dashboard</title>
+
+<link rel="stylesheet" href="/welcome.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+	<div class="sidebar">
+
+	    <div class="logo">MCQ Quiz</div>
+
+	    <a href="/home">
+	        <i class="fa-solid fa-house"></i> Home
+	    </a>
+
+	    <a th:if="${role == 'ADMIN' or role == 'TESTER'}" href="/create-question">
+	        <i class="fa-solid fa-circle-plus"></i> Create Questions
+	    </a>
+
+	    <a th:if="${role == 'ADMIN' or role == 'TESTER'}" href="/all-questions">
+	        <i class="fa-solid fa-book"></i> All Questions
+	    </a>
+
+	    <!-- All roles -->
+	    <a href="/user-quiz">
+	        <i class="fa-solid fa-user"></i> User Quiz
+	    </a>
+
+	    <!-- ADMIN + TESTER -->
+	    <a th:if="${role == 'ADMIN' or role == 'TESTER'}" href="/view-quiz">
+	        <i class="fa-solid fa-list-check"></i> View Quiz
+	    </a>
+
+	    <!-- All roles -->
+	    <a href="/result">
+	        <i class="fa-solid fa-chart-column"></i> Result
+	    </a>
+
+	    <!-- TESTER only -->
+	    <a th:if="${role == 'TESTER'}" href="/admin-requests">
+	        <i class="fa-solid fa-user-shield"></i> Admin Requests
+	    </a>
+
+	    <a href="/logout">
+	        <i class="fa-solid fa-right-from-bracket"></i> Logout
+	    </a>
+
+	</div>
+
+<div class="content">
+
+    <div class="welcome-box">
+
+        <h1>Welcome</h1>
+
+        <h2 class="username"
+            th:text="${username}">
+            Username
+        </h2>
+
+        <p>
+            Welcome to MCQ Quiz Application Dashboard.
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>

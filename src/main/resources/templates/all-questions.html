@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Questions</title>
+    <link rel="stylesheet" href="/all-questions.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="top-section">
+            <h1>All Questions</h1>
+            <a href="/create-question" class="add-btn">+ Create Question</a>
+        </div>
+
+        <p th:if="${#lists.isEmpty(questions)}" class="empty-message">
+            No questions found.
+        </p>
+
+        <div th:each="question, status : ${questions}" class="question-card">
+
+            <h3>
+                <span th:text="${status.count}"></span>.
+                <span th:text="${question.questionText}"></span>
+            </h3>
+
+            <p><b>A.</b> <span th:text="${question.optionA}"></span></p>
+            <p><b>B.</b> <span th:text="${question.optionB}"></span></p>
+            <p><b>C.</b> <span th:text="${question.optionC}"></span></p>
+            <p><b>D.</b> <span th:text="${question.optionD}"></span></p>
+
+            <div class="details">
+                Correct Answer: <b th:text="${question.correctAnswer}"></b>
+                <br>
+                Type: <b th:text="${question.type}"></b>
+            </div>
+			
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Quiz Results</title>
+    <link rel="stylesheet" href="/quiz-results.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="top-section">
+        <div>
+            <p class="small-title">MCQ QUIZ APPLICATION</p>
+            <h1>My Quiz Results</h1>
+        </div>
+
+        <a href="/user-quiz" class="quiz-btn">Take Quiz</a>
+    </div>
+
+    <div class="summary-box">
+
+        <div class="summary-card">
+            <p>Total Quizzes Taken</p>
+            <h2 th:text="${totalQuizzesTaken}">0</h2>
+        </div>
+
+        <div class="summary-card">
+            <p>Overall Average</p>
+            <h2>
+                <span th:text="${#numbers.formatDecimal(overallAverage, 1, 2)}">0</span>%
+            </h2>
+        </div>
+
+    </div>
+
+    <h2 class="subject-title">Subject-wise Average Marks</h2>
+
+    <div class="subject-grid">
+
+        <div class="subject-card">
+            <p>Java</p>
+            <h2><span th:text="${#numbers.formatDecimal(javaAverage, 1, 2)}">0</span>%</h2>
+        </div>
+
+        <div class="subject-card">
+            <p>Python</p>
+            <h2><span th:text="${#numbers.formatDecimal(pythonAverage, 1, 2)}">0</span>%</h2>
+        </div>
+
+        <div class="subject-card">
+            <p>JavaScript</p>
+            <h2><span th:text="${#numbers.formatDecimal(javaScriptAverage, 1, 2)}">0</span>%</h2>
+        </div>
+
+        <div class="subject-card">
+            <p>HTML</p>
+            <h2><span th:text="${#numbers.formatDecimal(htmlAverage, 1, 2)}">0</span>%</h2>
+        </div>
+
+        <div class="subject-card">
+            <p>CSS</p>
+            <h2><span th:text="${#numbers.formatDecimal(cssAverage, 1, 2)}">0</span>%</h2>
+        </div>
+
+    </div>
+
+    <p th:if="${#lists.isEmpty(results)}" class="empty-message">
+        You have not taken any quiz yet. Click “Take Quiz” to start.
+    </p>
+
+    <div th:if="${!#lists.isEmpty(results)}" class="table-box">
+
+        <h2>All Quiz Attempts</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Percentage</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="result, status : ${results}">
+                    <td th:text="${status.count}"></td>
+                    <td th:text="${result.type}"></td>
+                    <td>
+                        <span th:text="${result.score}"></span>
+                        /
+                        <span th:text="${result.totalQuestions}"></span>
+                    </td>
+                    <td>
+                        <span th:text="${#numbers.formatDecimal(result.percentage, 1, 2)}"></span>%
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="/welcome.css">
+</head>
+<body>
+
+<div class="content">
+    <h1>Quiz Result</h1>
+
+    <h2>Total Quizzes Taken:
+        <span th:text="${totalQuizzesTaken}"></span>
+    </h2>
+
+    <h2>Overall Average:
+        <span th:text="${#numbers.formatDecimal(overallAverage, 1, 2)}"></span>%
+    </h2>
+
+    <h2>Subject-wise Average</h2>
+
+    <p>Java: <b th:text="${#numbers.formatDecimal(javaAverage, 1, 2)}"></b>%</p>
+    <p>Python: <b th:text="${#numbers.formatDecimal(pythonAverage, 1, 2)}"></b>%</p>
+    <p>JavaScript: <b th:text="${#numbers.formatDecimal(javaScriptAverage, 1, 2)}"></b>%</p>
+    <p>HTML: <b th:text="${#numbers.formatDecimal(htmlAverage, 1, 2)}"></b>%</p>
+    <p>CSS: <b th:text="${#numbers.formatDecimal(cssAverage, 1, 2)}"></b>%</p>
+
+    <a href="/home">Back to Dashboard</a>
+</div>
+
+</body>
+</html>

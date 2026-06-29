@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MCQ Quiz Application - Register</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/mcqregister.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<div class="title">
+    MCQ Quiz Application
+</div>
+
+<div class="container">
+
+    <h2>Register</h2>
+
+    <form action="/mcqregister" method="post" onsubmit="return checkPassword()">
+
+        <label>Select Role</label>
+        <select name="role" required>
+            <option value="">Choose Role</option>
+            <option value="USER">User</option>
+            <option value="ADMIN">Admin</option>
+        </select>
+
+        <label>Username</label>
+        <input type="text"
+               name="username"
+               placeholder="Enter Username"
+               required>
+
+        <label>Email</label>
+        <input type="email"
+               name="email"
+               placeholder="Enter Email"
+               required>
+
+			   <label>Password</label>
+
+			   <div class="password-box">
+
+			       <input type="password"
+			              id="password"
+			              name="password"
+			              placeholder="Enter Password"
+			              onkeyup="checkPassword()"
+			              required>
+
+			       <i id="eye"
+			          class="fa-solid fa-eye-slash"
+			          onclick="togglePassword()"></i>
+
+			   </div>
+
+			   <div id="passwordRules">
+
+			       <p id="upper">❌ One Uppercase Letter</p>
+
+			       <p id="lower">❌ One Lowercase Letter</p>
+
+			       <p id="number">❌ One Number</p>
+
+			       <p id="symbol">❌ One Special Character</p>
+
+			       <p id="length">❌ Minimum 8 Characters</p>
+
+			   </div>
+
+			   <label>Confirm Password</label>
+
+			   <div class="password-box">
+
+			       <input type="password"
+			              id="confirmPassword"
+			              name="confirmPassword"
+			              placeholder="Confirm Password"
+			              onkeyup="checkPassword()"
+			              required>
+
+			   </div>
+
+			   <small id="passwordError"></small>
+
+        <button type="submit">Register</button>
+
+        <p>
+            Already have an account?
+            <a href="/mcqlogin">Login</a>
+        </p>
+
+    </form>
+</div>
+<script src="/mcqregister.js?v=1"></script>
+
+</body>
+</html>

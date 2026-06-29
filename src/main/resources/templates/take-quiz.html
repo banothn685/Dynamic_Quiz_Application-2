@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Take Quiz</title>
+    <link rel="stylesheet" href="/take-quiz.css">
+</head>
+<body>
+
+<div class="container">
+	<div class="top-section">
+	    <h1 th:text="${type + ' Quiz'}">Quiz</h1>
+
+	    <a href="/home" class="back-btn">← Back</a>
+	</div>
+
+	<div class="timer-box">
+	    ⏰ Time Left: <span id="timer">10:00</span>
+	</div>
+
+    <p th:if="${#lists.isEmpty(questions)}" class="empty-message">
+        No questions available for this subject.
+    </p>
+		
+	<div id="startSection">
+	    <button type="button" id="startBtn" onclick="startQuiz()">
+	        Start Quiz
+	    </button>
+	</div>
+	
+    <form id="quizForm"
+	th:if="${!#lists.isEmpty(questions)}"
+          action="/submit-quiz"
+          method="post"
+		  style="display:none;">
+
+        <input type="hidden" name="type" th:value="${type}">
+
+        <div th:each="question, status : ${questions}" class="question-card">
+
+            <input type="hidden" name="questionId" th:value="${question.id}">
+
+            <h3>
+                <span th:text="${status.count}"></span>.
+                <span th:text="${question.questionText}"></span>
+            </h3>
+
+			<label>
+			    <input type="radio"
+			           th:name="${'answer_' + question.id}"
+			           value="A"
+			           required>
+			    <span th:text="${question.optionA}"></span>
+			</label>
+
+			<label>
+			    <input type="radio"
+			           th:name="${'answer_' + question.id}"
+			           value="B">
+			    <span th:text="${question.optionB}"></span>
+			</label>
+
+			<label>
+			    <input type="radio"
+			           th:name="${'answer_' + question.id}"
+			           value="C">
+			    <span th:text="${question.optionC}"></span>
+			</label>
+
+			<label>
+			    <input type="radio"
+			           th:name="${'answer_' + question.id}"
+			           value="D">
+			    <span th:text="${question.optionD}"></span>
+			</label>
+
+        </div>
+
+        <button type="submit">Submit Quiz</button>
+
+    </form>
+
+</div>
+
+<script src="/take-quiz.js"></script>
+
+</body>
+</html>

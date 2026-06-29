@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Question</title>
+
+    <link rel="stylesheet" href="/create-question.css">
+</head>
+<body>
+	
+    <div class="container">
+		<a href="/home" class="back-btn">← Back</a>
+        <h1>Create Question</h1>
+
+        <p th:if="${param.success}" class="success-message">
+            Your question and answer are saved successfully!
+        </p>
+		
+		
+
+        <form action="/save-question" method="post">
+
+            <label for="questionText">Question Text</label>
+            <textarea id="questionText"
+                      name="questionText"
+                      placeholder="Enter your question"
+                      required></textarea>
+
+            <label for="optionA">Option A</label>
+            <input type="text"
+                   id="optionA"
+                   name="optionA"
+                   placeholder="Enter option A"
+                   required>
+
+            <label for="optionB">Option B</label>
+            <input type="text"
+                   id="optionB"
+                   name="optionB"
+                   placeholder="Enter option B"
+                   required>
+
+            <label for="optionC">Option C</label>
+            <input type="text"
+                   id="optionC"
+                   name="optionC"
+                   placeholder="Enter option C"
+                   required>
+
+            <label for="optionD">Option D</label>
+            <input type="text"
+                   id="optionD"
+                   name="optionD"
+                   placeholder="Enter option D"
+                   required>
+
+            <label for="correctAnswer">Correct Answer</label>
+            <select id="correctAnswer" name="correctAnswer" required>
+                <option value="">Select correct answer</option>
+                <option value="A">Option A</option>
+                <option value="B">Option B</option>
+                <option value="C">Option C</option>
+                <option value="D">Option D</option>
+            </select>
+
+            <label for="type">Type</label>
+            <select id="type" name="type" required>
+                <option value="">Select type</option>
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                <option value="JavaScript">JavaScript</option>
+            </select>
+
+            <button type="submit">Save Question</button>
+			 
+        </form>
+
+		</form>
+
+		</div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Requests</title>
+    <link rel="stylesheet" href="/admin-requests.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Pending Admin Requests</h1>
+
+    <a class="back-btn" href="/home">← Back to Home</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Request Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr th:each="user : ${requests}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.email}"></td>
+                <td>Pending Admin</td>
+
+                <td>
+                    <a class="approve"
+                       th:href="@{/approve-admin(id=${user.id})}">
+                        Accept
+                    </a>
+
+                    <a class="reject"
+                       th:href="@{/reject-admin(id=${user.id})}">
+                        Reject
+                    </a>
+                </td>
+            </tr>
+
+            <tr th:if="${#lists.isEmpty(requests)}">
+                <td colspan="5">No pending admin requests.</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
