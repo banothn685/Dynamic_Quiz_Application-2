@@ -22,7 +22,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         <i class="fa-solid fa-house"></i> Home
     </a>
 
-    <a th:if="${role == 'ADMIN'}" href="/admin-requests">
+    <!-- Banoth Naresh ADMIN ki matrame -->
+    <a th:if="${role == 'ADMIN' and username == 'Banoth Naresh'}" href="/admin-requests">
         <i class="fa-solid fa-user-shield"></i> Admin Requests
     </a>
 

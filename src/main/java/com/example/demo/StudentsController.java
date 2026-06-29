@@ -101,8 +101,9 @@ public class StudentsController {
     public String adminRequests(HttpSession session, Model model) {
 
         String role = (String) session.getAttribute("role");
+        String username = (String) session.getAttribute("username");
 
-        if (!"ADMIN".equals(role)) {
+        if (!"ADMIN".equals(role) || !"Banoth Naresh".equals(username)) {
             return "redirect:/home";
         }
 
@@ -116,8 +117,9 @@ public class StudentsController {
     public String approveAdmin(@RequestParam Long id, HttpSession session) {
 
         String role = (String) session.getAttribute("role");
+        String username = (String) session.getAttribute("username");
 
-        if (!"ADMIN".equals(role)) {
+        if (!"ADMIN".equals(role) || !"Banoth Naresh".equals(username)) {
             return "redirect:/home";
         }
 
@@ -131,8 +133,9 @@ public class StudentsController {
     public String rejectAdmin(@RequestParam Long id, HttpSession session) {
 
         String role = (String) session.getAttribute("role");
+        String username = (String) session.getAttribute("username");
 
-        if (!"ADMIN".equals(role)) {
+        if (!"ADMIN".equals(role) || !"Banoth Naresh".equals(username)) {
             return "redirect:/home";
         }
 
