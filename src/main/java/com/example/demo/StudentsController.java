@@ -102,7 +102,7 @@ public class StudentsController {
 
         String role = (String) session.getAttribute("role");
 
-        if (!"TESTER".equals(role)) {
+        if (!"ADMIN".equals(role)) {
             return "redirect:/home";
         }
 
@@ -117,7 +117,7 @@ public class StudentsController {
 
         String role = (String) session.getAttribute("role");
 
-        if (!"TESTER".equals(role)) {
+        if (!"ADMIN".equals(role)) {
             return "redirect:/home";
         }
 
@@ -132,7 +132,7 @@ public class StudentsController {
 
         String role = (String) session.getAttribute("role");
 
-        if (!"TESTER".equals(role)) {
+        if (!"ADMIN".equals(role)) {
             return "redirect:/home";
         }
 
